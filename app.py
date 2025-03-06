@@ -42,7 +42,7 @@ def prepare_image(image):
     return img_gray
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def home():
     if 'file' not in request.files:
         return jsonify({'error': 'Nessun file caricato'}), 400
