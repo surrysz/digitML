@@ -41,14 +41,9 @@ def prepare_image(image):
     
     return img_gray
 
-# Endpoint per la root
-@app.route('/')
-def home():
-    return "Flask app is running! Please use the /predict endpoint to upload images."
 
-# Endpoint per ricevere l'immagine
-@app.route('/predict', methods=['URL'])
-def predict():
+@app.route('/', methods=['GET'])
+def home():
     if 'file' not in request.files:
         return jsonify({'error': 'Nessun file caricato'}), 400
 
